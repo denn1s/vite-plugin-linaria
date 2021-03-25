@@ -8,10 +8,6 @@
     "CHANGELOG.md",
     "README.md"
   ],
-  "scripts": {
-    "example:dev": "npm -C example run serve",
-    "example:build": "npm -C example run build"
-  },
   "keywords": [
     "vite",
     "linaria",
