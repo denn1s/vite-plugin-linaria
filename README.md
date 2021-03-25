@@ -1,7 +1,5 @@
 # vite-plugin-linaria
 
-[![npm][npm-img]][npm-url] [![node][node-img]][node-url]
-
 A Vite plugin for linaria using vite virtual files for development
 
 ### Install (yarn or npm)

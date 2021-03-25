@@ -1,0 +1,46 @@
+{
+  "name": "vite-plugin-linaria",
+  "version": "1.0.0",
+  "description": "A plugin for vite to serve and build linaria using linaria babel",
+  "main": "src/index.js",
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "scripts": {
+    "example:dev": "npm -C example run serve",
+    "example:build": "npm -C example run build"
+  },
+  "keywords": [
+    "vite",
+    "linaria",
+    "css",
+    "vite-plugin"
+  ],
+  "author": "Dennis",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denn1s/vite-plugin-linaria"
+  },
+  "bugs": {
+    "url": "https://github.com/denn1s/vite-plugin-linaria/issues"
+  },
+  "homepage": "https://github.com/denn1s/vite-plugin-linaria/tree/master/#readme",
+  "peerDependencies": {
+    "linaria": "^3.0.0-beta.1",
+    "vite": ">=2.0.0"
+  },
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.1.1",
+    "prettier": "^2.2.1",
+    "vite": "^2.0.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@linaria/babel-preset": "^3.0.0-beta.1",
+    "@linaria/shaker": "^3.0.0-beta.1",
+    "@rollup/pluginutils": "^4.1.0"
+  }
+}
