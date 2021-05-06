@@ -19,6 +19,8 @@ module.exports = () => {
 
     const filter = createFilter(include, exclude)
     const cssLookup = {}
+    const lookupFilenames = {}
+    const lookupFirstLoad = {}
 
     return {
         name: 'linaria',
@@ -49,8 +51,22 @@ module.exports = () => {
                 cssText += `/*# sourceMappingURL=data:application/json;base64,${map}*/`
             }
 
+            if (lookupFilenames[id]) {
+                result.code += `\nimport { updateStyle } from "/@vite/client";\nupdateStyle('${id}', '${cssText.trim()}');\n`
+
+                if (lookupFirstLoad[id]) {
+                    lookupFirstLoad[id] = false
+                    result.code += `\nimport { removeStyle } from "/@vite/client";\nremoveStyle('${lookupFilenames[id]}');\n`
+                }
+
+                delete cssLookup[lookupFilenames[id]]
+            } else {
+                result.code +=  `\nimport ${JSON.stringify(filename)};\n`
+                lookupFirstLoad[id] = true
+            }
+
             cssLookup[filename] = cssText
-            result.code += `\nimport ${JSON.stringify(filename)};\n`
+            lookupFilenames[id] = filename
 
             return { code: result.code, map: result.sourceMap }
         },
