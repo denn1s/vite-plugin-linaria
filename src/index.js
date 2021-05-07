@@ -52,7 +52,7 @@ module.exports = () => {
             }
 
             if (lookupFilenames[id]) {
-                result.code += `\nimport { updateStyle } from "/@vite/client";\nupdateStyle('${id}', '${cssText.trim()}');\n`
+                result.code += `\nimport { updateStyle } from "/@vite/client";\nupdateStyle('${id}', \`${cssText.trim()}\`);\n`
 
                 if (lookupFirstLoad[id]) {
                     lookupFirstLoad[id] = false
