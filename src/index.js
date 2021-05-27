@@ -4,19 +4,9 @@ const { transform, slugify } = require('@linaria/babel-preset')
 
 const runtimePublicPath = '/@linaria-cache/'
 
-module.exports = () => {
-    const _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {}
-    const include = _ref.include
-    const exclude = _ref.exclude
-    const sourceMap = _ref.sourceMap
-    const preprocessor = _ref.preprocessor
-    const rest = {}
-    Object.assign(rest, _ref)
-    delete rest.include
-    delete rest.exclude
-    delete rest.sourceMap
-    delete rest.preprocessor
-
+module.exports = (options = {}) => {
+    let { include, exclude, sourceMap,  preprocessor, ...rest } = options;
+    if (!include) include = ["**/*.js", "**/*.jsx"]
     const filter = createFilter(include, exclude)
     const cssLookup = {}
 
